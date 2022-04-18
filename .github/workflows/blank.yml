@@ -37,9 +37,9 @@ jobs:
 
       - name: get git envs
         run: |
-          echo "${GITHUB_REF#refs/heads/}"
-          echo "${GITHUB_REF_CONTEXT#refs/heads/}"
-          echo "${GITHUB_REF#refs/heads/}" # PRの番号が取得されてしまいます
-          echo "${GITHUB_HEAD_REF}"
-          echo "${{ github.ref }}"
+          echo "GITHUB_REF#refs/heads/ = ${GITHUB_REF#refs/heads/}"
+          echo "GITHUB_REF_CONTEXT#refs/heads/ = ${GITHUB_REF_CONTEXT#refs/heads/}"
+          echo "GITHUB_REF#refs/heads/ = ${GITHUB_REF#refs/heads/}" # PRの番号が取得されてしまいます
+          echo "GITHUB_HEAD_REF = ${GITHUB_HEAD_REF}"
+          echo "github.ref = ${{ github.ref }}"
           echo '${{ toJson(github) }}' | jq .
